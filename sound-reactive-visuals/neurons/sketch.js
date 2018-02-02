@@ -1,34 +1,3 @@
-/*
-
-    The drawing of the lines and paths begins once the camera detects movement. When the drawing has begun, and the cam picks up movement
-    triangular shapes will appear on the drawing screen in areas where the motion was detected. These triangles are sound-reactive, so the size
-    of the triangles increase/decreases according to the amplitude.
-
-    When the webcam detects movement, particles (ellipses) begin floating out:
-    - it's force is dependent on the movement
-    - the direction in which they go is dependent on where the motion is detected.
-         for instance, if there is movement from the right side, the partices will float towards the right,
-                       if there is movement from the left side, the particles will floats towards the left
-                       if there is movement from below, the particles will float upwards.
-
-    When there is a lot of movement, the line drawing will begin fading out. Then the drawing will get the position of the particles x and y, and begin drawing from there.
-         for example, camera detects movement from below, then particles float upwards, user stops moving, then line drawing begins and it latches onto the particles x,y
-                      and begins drawing and it fades out upwards.
-    Continuous movement for a period of time will stop the drawing. When movement stops for a moment, drawing begins again.
-    You can see which movements have been detected by looking at the motion detection webcam which is the first cam on the top left hand corner.
-
-    The drawing:
-    The connected points (ellipses) are dependent on the sound, so it's size chages as the amplitude of the sound increases.
-    The x co-ordinate of the line is dependent on the sound too, so when the amplitude increase, the point moves further down on the x axis
-    The y co-ordinate of the line is set to a random height between certain integers so that it moves up/down and creates a zigzag line.
-
-    Reference:
-    - Motion detection: my previous work with the piano cam.
-    - Inspiration for the drawing came from: https://p5js.org/examples/hello-p5-drawing.html
-    - Audio sample: freesound.org
-
-    */
-
 // WEBCAM INTERACTION
 var video;
 var prevImg;
@@ -292,3 +261,34 @@ Particle.prototype.display = function(other) {
   line(px, py2, opx, opy2);
  }
 }
+
+/*
+
+    The drawing of the lines and paths begins once the camera detects movement. When the drawing has begun, and the cam picks up movement
+    triangular shapes will appear on the drawing screen in areas where the motion was detected. These triangles are sound-reactive, so the size
+    of the triangles increase/decreases according to the amplitude.
+
+    When the webcam detects movement, particles (ellipses) begin floating out:
+    - it's force is dependent on the movement
+    - the direction in which they go is dependent on where the motion is detected.
+         for instance, if there is movement from the right side, the partices will float towards the right,
+                       if there is movement from the left side, the particles will floats towards the left
+                       if there is movement from below, the particles will float upwards.
+
+    When there is a lot of movement, the line drawing will begin fading out. Then the drawing will get the position of the particles x and y, and begin drawing from there.
+         for example, camera detects movement from below, then particles float upwards, user stops moving, then line drawing begins and it latches onto the particles x,y
+                      and begins drawing and it fades out upwards.
+    Continuous movement for a period of time will stop the drawing. When movement stops for a moment, drawing begins again.
+    You can see which movements have been detected by looking at the motion detection webcam which is the first cam on the top left hand corner.
+
+    The drawing:
+    The connected points (ellipses) are dependent on the sound, so it's size chages as the amplitude of the sound increases.
+    The x co-ordinate of the line is dependent on the sound too, so when the amplitude increase, the point moves further down on the x axis
+    The y co-ordinate of the line is set to a random height between certain integers so that it moves up/down and creates a zigzag line.
+
+    Reference:
+    - Motion detection: my previous work with the piano cam.
+    - Inspiration for the drawing came from: https://p5js.org/examples/hello-p5-drawing.html
+    - Audio sample: freesound.org
+
+    */
